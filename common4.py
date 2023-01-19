@@ -32,7 +32,7 @@ def run_standard_text_flow(entered_values, binary_order, show_binary, initial_pi
         file.write("\nPitch tally:\n")
         file.write(str(total_tally))
         file.write("\nTotal # of piches: {}\n".format(total))
-        file.write(str(footer))
+        file.write(str(foot))
     print("Output written to: {}".format(filename))
 
 
