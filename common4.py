@@ -19,7 +19,8 @@ def run_standard_text_flow(entered_values, binary_order, show_binary, initial_pi
         file.write("\nPossible pitch outcomes using {} for the {} entered intervals: {}\n\n".format(decision, seq_length, interval_set))
         file.write(str(string_list))
         file.write("\n\n")
-        if decision.lower() == 'y' or decision.lower() == 'yes':
+        if show_binary.lower().strip() in {'y', 'yes'}:
+            file.write("\n\nSelected binary ordering was: {} which means {}\n".format(binary_order, decision))
             file.write("\nbinary sequence\n[0=up, 1=down]\n")
             file.write(str(perm_list))
             file.write("\n\n")
