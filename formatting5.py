@@ -20,7 +20,7 @@ def get_intervals(entered_values):
     intervals = {
         1: "m2",
         2: "M2",
-        3: "minterval_set, seq_length, total, perm_list, pitches_list_all, string_list, total_tally, filename, decision, footer3",
+        3: "m3",
         4: "M3",
         5: "P4",
         6: "Tt"
