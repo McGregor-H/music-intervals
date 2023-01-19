@@ -20,7 +20,7 @@ import common4
 #([1,4,3], 'ord', True, 'C')
 def main():
 	entered_values, binary_order, show_binary, initial_pitch = prompt_for_all_arguments()
-	common4.run_standard_text_flow(get_intervals, length_needed, total_num_pitches, make_permutations, pitch_list_generator, pitch_stripper, tallies, generate_unique_name, later_function, footer)
+	common4.run_standard_text_flow(entered_values, binary_order, show_binary, initial_pitch)
 #(interval_set, seq_length, total, perm_list, pitches_list_all, string_list, total_tally, filename, decision, footer)
 
 
