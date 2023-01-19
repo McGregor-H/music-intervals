@@ -27,8 +27,8 @@ def main():
 def prompt_for_all_arguments():# -> Tuple[List[int], str, bool, str]:
     print("Enter sequence of intervals as number of half steps \n1=minor 2nd, 2=Major 2nd, 3=minor 3rd, \n4=Major 3rd, 5=Perfect 4th, 6=Tri-tone")
     entered_values_raw = input("Enter a sequence of intervals separated by a comma: \nonly valid intervals: 1 - 6\n >")
-    entered_values = [int(x.trim()) for x in entered_values_raw.split(',')]
-    if (any(x > 6 or x < 1 for x inm entered_values)):
+    entered_values = [int(x.strip()) for x in entered_values_raw.split(',')]
+    if (any(x > 6 or x < 1 for x in entered_values)):
         raise Exception("All entered values must be integer between 1 and 6 inclusive")
 
     print("\nChoose a method of permutation:\n[ord] ORDERED - using all combinations of up/down once in order")
