@@ -3,24 +3,14 @@ import random
 import itertools
 import textwrap
 
-#B.S. values for now
-#entered_values = [5,2,1,5]
-#ord, shuf, ran
-#binary_order = ("shuf")
-#initial_pitch = ('C')
-#show_binary = ('y')
 
-#get_intervals, length_needed, total_num_pitches, make_permutations, pitch_list_generator, pitch_stripper, tallies, generate_unique_name, later_function, footer
-
-
-#interval_set, seq_length, total, perm_list, pitches_list_all, string_list, total_tally, filename, decision, footer
 #####################################################
 #NUMBERS TO INTERVAL NAMES
 def get_intervals(entered_values):
     intervals = {
         1: "m2",
         2: "M2",
-        3: "minterval_set, seq_length, total, perm_list, pitches_list_all, string_list, total_tally, filename, decision, footer3",
+        3: "m3",
         4: "M3",
         5: "P4",
         6: "Tt"
@@ -44,13 +34,6 @@ def total_num_pitches(seq_length):
 #total = total_num_pitches(seq_length)
 
 
-
-
-
-#seq_length = length_needed(entered_values)
-#interval_sequence = get_intervals(entered_values)
-#total_num_pitches = (2 ** seq_length) * seq_length + 1
-#start_pitch = initial_pitch
 #####################################################
 #BINARY GENERATOR
 def make_permutations(seq_length, binary_order):
@@ -95,6 +78,14 @@ def make_permutations(seq_length, binary_order):
 
 #print(perm_list)
 
+def join_us(perm_list):
+    perm_list = [str(tuple(x)) for x in perm_list]
+    perm_list = [x.replace("(","").replace(")","") for x in perm_list]
+    perm_result= "\n".join(perm_list)
+    return perm_result
+#binary code without all the () and {} and newline
+
+
 #####################################################
 #PITCH LIST GENERATOR
 
@@ -103,7 +94,7 @@ def pitch_list_generator(initial_pitch, perm_list, entered_values):
     pitches_list_all = []
     for bit in perm_list:
         pitches_list = []  # reset the pitches_list for each permutation
-        start_pitch = initial_pitch
+        #start_pitch = initial_pitch
         for i in range(len(entered_values)):
             interval = entered_values[i]
             direction = bit[i]  # change here to use bit instead of perm_list
@@ -121,22 +112,27 @@ def pitch_list_generator(initial_pitch, perm_list, entered_values):
                 initial_pitch = new_pitch
         pitches_list_all.append(pitches_list)
 
-    pitches_list_all.insert(0, start_pitch)
+    #pitches_list_all.insert(0, start_pitch)
     return pitches_list_all
+
+def add_starting_p(pitches_list_all, initial_pitch):
+    start_pitch = initial_pitch
+    pitches_list_all.insert(0, start_pitch)
+    pitches_list_all_plus = pitches_list_all
+    return pitches_list_all_plus
 
 #pitches_list_all = pitch_list_generator(initial_pitch, perm_list, entered_values)
 ########################################################
-def pitch_stripper(pitches_list_all):
+def pitch_stripper(pitches_list_all_plus):
     #flatten the list
-    flatten_list = [elem for sublist in pitches_list_all for elem in sublist]
+    flatten_list = [elem for sublist in pitches_list_all_plus for elem in sublist]
     #join the list 
     string_list = ' '.join(flatten_list)
+
     return string_list
 
 #string_list = pitch_stripper(pitches_list_all)
     
-
-
 #print(pitches_list_all)  
 
 #####################################################
@@ -181,7 +177,6 @@ def generate_unique_name():
     return filename
 
 
-
 #filename = generate_unique_name()
 #print(filename)
 #####################################################
@@ -209,15 +204,9 @@ def footer(filename):
 --------------------------------
 for more info visit:
 https://www.gregpfeiffer.com
-
 {filename}
 generated with THE INTERVAL CODE
-
 copyright G.C.Pfeiffer ©2022
 """
 
-
-
-
-
-
+   
