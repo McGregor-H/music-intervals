@@ -11,13 +11,18 @@ app = Flask(__name__)
 
 def prompt_values():
     if request.method == 'POST':
-        entered_values_raw = request.form.getlist('entered_values_raw')
+        #entered_values_raw = request.form.getlist('entered_values_raw')
+        #entered_values = [int(val) for val in entered_values_raw.split(',') if int(val) in range(1, 7)]
+        entered_values_raw = request.form['entered_values_raw']
+        print(entered_values_raw)
+        #temp_raw = entered_values_raw[0].split(', ')
         temp_raw = entered_values_raw.split(', ')
+        print(temp_raw)
         entered_values = []
         for interval in temp_raw:
             if int(interval) in range(1, 7):
                 entered_values.append(interval)
-        #print(entered_values)
+        print(entered_values)
         binary_order = request.form['binary_order']
         show_binary = request.form['show_binary'] == 'True'
         initial_pitch = request.form['initial_pitch']
