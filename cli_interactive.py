@@ -1,10 +1,10 @@
 from typing import List, Tuple
 
-import common4
+import text_flow
 
 def main():
 	entered_values, binary_order, show_binary, initial_pitch = prompt_for_all_arguments()
-	common4.run_standard_text_flow(entered_values, binary_order, show_binary, initial_pitch)
+	text_flow.run_standard_text_flow(entered_values, binary_order, show_binary, initial_pitch)
 
 
 
