@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block subtitle %} Result {{suggested_title}}{% endblock %}
+{% block content %}
+<h1 class="blueheader">Result {{suggested_title}}</h1>
+<h3 class="blueheader">Interval Set</h3>
+<p>{{', '.join(interval_set)}}</p>
+<h3 class="blueheader">Binary Ordering Approach</h3>
+<p>{{binary_order}}</p>
+<h3 class="blueheader">Pitches</h3>
+	<p>{{initial_pitch}}</p>
+	<table>
+		<tbody>
+			{% for sublist in all_pitches %}
+			<tr>
+				{% for element in sublist %}
+				<td>{{element}}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+<details>
+	<summary>Binary</summary>
+	<p> 0=up, 1=down</p>
+	<p>{{binary}}</p>
+</details>
+<h3 class="blueheader">Pitch Tallies</h3>
+	<table>
+		<thead>
+			<tr><th>Pitch</th><th>Count</th></tr>
+		</thead>
+		<tbody>
+			{% for pitch, count in total_tally.items() %}
+			<tr>
+				<td>{{pitch}}</td>
+				<td>{{count}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

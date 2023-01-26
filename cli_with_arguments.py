@@ -2,7 +2,7 @@ import argparse
 
 from typing import List, Tuple
 
-import common4
+import text_flow
 
 # invoke like this:
 # python cli_with_arguments.py 5,2,5,1 ord y G
@@ -14,7 +14,7 @@ import common4
 def main():
 	entered_values, binary_order, show_binary, initial_pitch = parse_all_commandline_args()
 	print(f"Received: {entered_values}  {binary_order}, {show_binary}, {initial_pitch}")
-	common4.run_standard_text_flow(entered_values, binary_order, show_binary, initial_pitch)
+	text_flow.run_standard_text_flow(entered_values, binary_order, show_binary, initial_pitch)
 
 
 def parse_all_commandline_args() -> Tuple[List[int], str, bool, str]:

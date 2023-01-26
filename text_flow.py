@@ -1,6 +1,6 @@
 from typing import Dict, List
 
-from formatting5 import get_intervals, length_needed, total_num_pitches, make_permutations, join_us, pitch_list_generator, add_starting_p, pitch_stripper, tallies, generate_unique_name, later_function, footer
+from utils import get_intervals, length_needed, total_num_pitches, make_permutations, join_us, pitch_list_generator, add_starting_p, pitch_stripper, tallies, generate_unique_name, later_function, footer
 
 def run_standard_text_flow(entered_values, binary_order, show_binary, initial_pitch):
     interval_set = get_intervals(entered_values)
