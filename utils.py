@@ -36,12 +36,13 @@ def total_num_pitches(seq_length):
 
 #####################################################
 #BINARY GENERATOR
-def make_permutations(seq_length, binary_order, random_seed=-1):
+def make_permutations(seq_length, binary_order, random_seed=None):
     #generate list of all possible permutations of 0 and 1 with x length
     #permutations = list(itertools.product([0,1], repeat=length))
+    if random_seed is not None:
+        random.seed(random_seed)        
 
     if "shuf" in binary_order:
-        random.seed(random_seed)
         permutations = list(itertools.product([0,1], repeat=seq_length))
         random.shuffle(permutations)
         perm_list = []
@@ -65,7 +66,6 @@ def make_permutations(seq_length, binary_order, random_seed=-1):
     
 
     elif "ran" in binary_order:
-        random.seed(random_seed) 
         perm_list = []
         list_length = 2 ** seq_length
         for i in range(list_length):
@@ -169,7 +169,9 @@ def tallies(pitches_list_all):
 #####################################################
 #FILE NAME MAKER
 
-def generate_unique_name():
+def generate_unique_name_no_suffix(random_seed=None):
+    if random_seed is not None:
+        random.seed(random_seed)
     word_1 = ['Inkwell', 'Ion', 'Trinity', 'Ceti', 'Echo', 'Kilo', 'Lightfoot', 'Nightwind', 'Panic', 'Sierra', 'Whiskey', 'X-ray', 'Zebra', 'Fallen', 'Hunter', 'Iceberg', 'Advantage', 'Blockade', 'Ricochet', 'Shakedown', 'Thunder', 'Switchblade', 'Cutlass', 'Sabre', 'Marduk', 'Enkidu', 'Omega']
     word_2 = ['Ridge', 'Canyon', 'Mountain', 'Creek', 'Hollow', 'Point', 'Bluff', 'Path', 'Tower', 'Cove', 'Plains', 'Valley', 'Bay', 'Channel', 'Gulf', 'Reef', 'Ravine', 'Deep', 'Quadrant', 'Triangle', 'Highway', 'Parkway']
     word_3 = ['part_I', 'part_II', 'part_III', 'part_IV', 'part_V', 'part_VI', 'part_VII', 'part_VIII', 'part_IX', 'part_X']
@@ -177,8 +179,11 @@ def generate_unique_name():
     choice_2 = random.choice(word_2)
     choice_3 = random.choice(word_3)
     unique_name = choice_1 + '_' + choice_2 + '_' + choice_3
-    filename = unique_name + '.txt'
-    return filename
+    return unique_name    
+
+
+def generate_unique_name():
+    return generate_unique_name_no_suffix() + '.txt'
 
 
 #filename = generate_unique_name()

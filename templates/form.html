@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block subtitle %}Creation Form{% endblock %}
+{% block content %}
+<form method="post">
+    <h1 class="blueheader">the interval program!</h1>
+    <p>Enter a sequence of intervals</p>
+    <p> 4=Major 3rd, 5=Perfect 4th, 6=Tri-tone</p>
+    <p style="color:red">for example: 2,5,3,1</p>
+    <label for="entered_values_raw">Enter values (comma separated):</label>
+    <input type="text" name="entered_values_raw" id="entered_values_raw">
+    <br>
+    <label for="binary_order">Binary Order:</label>
+    <select id="binary_order" name="binary_order">
+        <option value="ord">Ordinary</option>
+        <option value="shuf">Shuffle</option>
+        <option value="ran">Random</option>
+    </select>
+    <br>
+    <label for="initial_pitch">Enter initial pitch:</label>
+    <select id="initial_pitch" name="initial_pitch">
+        <option value="C">C</option>
+        <option value="C#">C#</option>
+        <option value="D">D</option>
+        <option value="D#">D#</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="F#">F#</option>
+        <option value="G">G</option>
+        <option value="G#">G#</option>
+        <option value="A">A</option>
+        <option value="A#">A#</option>
+        <option value="B">B</option>
+    </select>
+    <input type="submit" value="Submit">
+    <br>
+</form>
+<img src="{{url_for('static', filename='music_notes_messy.jpg')}}" width="100" height="100" />
+{% endblock %}
