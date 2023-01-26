@@ -1,4 +1,6 @@
 import json
+import venv
+import flask
 
 from flask import Flask, request, jsonify
 from typing import Dict, List
@@ -18,8 +20,8 @@ def prompt_values():
         entered_values = [x for x in entered_values_as_int_list_unfiltered if x > 0 and x < 7]
         
         binary_order = request.form['binary_order']
-        if binary_order not in {'ord', 'ran', 'shuf'}:
-            raise Exception('Bad value for binary order!')
+        #if binary_order not in {'ord', 'ran', 'shuf'}:
+            #raise Exception('Bad value for binary order!')
         show_binary = request.form['show_binary'] == 'True'
         initial_pitch = request.form['initial_pitch']
 
@@ -45,25 +47,75 @@ def prompt_values():
             'suggested_title': generate_unique_name()
         }
         # return ("---INPUTS---" + json.dumps(inputs_together, indent=2) + '\n\n---OUTPUTS---\n' + json.dumps(outputs_together, indent=2)).replace('\n', '<br/>')
-        return jsonify({'inputs': inputs_together, 'outputs': outputs_together})
-    else: 
-        return '''
-            <form method="post">
-                <label for="entered_values_raw">Enter values (comma separated):</label>
-                <input type="text" name="entered_values_raw" id="entered_values_raw">
-                <br>
-                <label for="binary_order">Enter binary order:</label>
-                <input type="text" name="binary_order" id="binary_order">
-                <br>
-                <label for="show_binary">Show binary?</label>
-                <input type="checkbox" name="show_binary" id="show_binary">
-                <br>
-                <label for="initial_pitch">Enter initial pitch:</label>
-                <input type="text" name="initial_pitch" id="initial_pitch">
-                <br>
-                <input type="submit" value="Submit">
-            </form>
-        '''
+        return second_screen(interval_set, perm_list, string_list, pitches_list_all_plus, total_tally, generate_unique_name())
+    else:
+        return '''<!DOCTYPE html>
+        <html>
+            <head>
+                <title>Enter</title>
+            </head>
+            <body>
+
+                <form method="post">
+                    <p style="font-family: impact; font-size:40px;color:blue;">the interval program!<p>
+                    <p style="font-family: dejavu sans">Enter a sequence of intervals</p>
+                    <p style="font-family: dejavu sans">1=minor 2nd, 2=Major 2nd, 3=minor 3rd,</p>
+                    <p style="font-family: dejavu sans"> 4=Major 3rd, 5=Perfect 4th, 6=Tri-tone</p>
+                    <p style="color:red">for example: 2,5,3,1</p>
+                    <body style="background-color:orange;">
+                    <label style="font-family: dejavu sans" for="entered_values_raw">Enter values (comma separated):</label>
+                    <input type="text" name="entered_values_raw" id="entered_values_raw">
+                    <br>
+                    <label style="font-family: dejavu sans" for="binary_order">Binary Order:</label>
+                    <select id="binary_order">
+                    <option value="ord">Ordinary</option>
+                    <option value="shuf">Shuffle</option>
+                    <option value="ran">Random</option>
+                    </select>
+                    <br>
+                    <label style="font-family: dejavu sans" for="show_binary">Show binary?</label>
+                    <input type="checkbox" name="show_binary" id="show_binary">
+                    <br>
+                    <label style="font-family: dejavu sans" for="initial_pitch">Enter initial pitch:</label>
+                    <select id="binary_order">
+                    <option value="C">C</option>
+                    <option value="C#">C#</option>
+                    <option value="D">D</option>
+                    <option value="D#">D#</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="F#">F#</option>
+                    <option value="G">G</option>
+                    <option value="G#">G#</option>
+                    <option value="A">A</option>
+                    <option value="A#">A#</option>
+                    <option value="B">B</option>
+                    <input type="submit" value="Submit">
+                    <br>
+                </form>
+                <html>
+            '''
+
+
+@app.route("/result")
+def second_screen(interval_set, perm_list, string_list, pitches_list_all_plus, total_tally, generate_unique_name):
+    return f'''<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h3>Here's the thing</h3>
+    {string_list}
+    {interval_set}
+    {perm_list}
+    {pitches_list_all_plus}
+    {total_tally}
+    {generate_unique_name}
+</body>
+</html>
+'''
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
