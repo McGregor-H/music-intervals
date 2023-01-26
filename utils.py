@@ -36,11 +36,12 @@ def total_num_pitches(seq_length):
 
 #####################################################
 #BINARY GENERATOR
-def make_permutations(seq_length, binary_order):
+def make_permutations(seq_length, binary_order, random_seed=-1):
     #generate list of all possible permutations of 0 and 1 with x length
     #permutations = list(itertools.product([0,1], repeat=length))
 
     if "shuf" in binary_order:
+        random.seed(random_seed)
         permutations = list(itertools.product([0,1], repeat=seq_length))
         random.shuffle(permutations)
         perm_list = []
@@ -63,7 +64,8 @@ def make_permutations(seq_length, binary_order):
         return perm_list      
     
 
-    elif "ran" in binary_order: 
+    elif "ran" in binary_order:
+        random.seed(random_seed) 
         perm_list = []
         list_length = 2 ** seq_length
         for i in range(list_length):
@@ -72,6 +74,8 @@ def make_permutations(seq_length, binary_order):
         #for set in perm_list:
             #print(set)
         return perm_list
+
+    raise ArgumentError("bad value for binary_order: {}".format(binary_order))
 
 
 #perm_list = make_permutations(seq_length, binary_order)
