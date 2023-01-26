@@ -15,6 +15,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def prompt_values():
     if request.method == 'POST':
+        # import copy; my_copied_form = copy.deepcopy(request.form)
         entered_values_raw = request.form['entered_values_raw']
         entered_values_as_int_list_unfiltered = [int(x) for x in entered_values_raw.split(',')]
         entered_values = [x for x in entered_values_as_int_list_unfiltered if x > 0 and x < 7]
@@ -22,7 +23,7 @@ def prompt_values():
         binary_order = request.form['binary_order']
         #if binary_order not in {'ord', 'ran', 'shuf'}:
             #raise Exception('Bad value for binary order!')
-        show_binary = request.form['show_binary'] == 'True'
+        show_binary = request.form.get('show_binary') is not None
         initial_pitch = request.form['initial_pitch']
 
         inputs_together = {
@@ -67,29 +68,30 @@ def prompt_values():
                     <input type="text" name="entered_values_raw" id="entered_values_raw">
                     <br>
                     <label style="font-family: dejavu sans" for="binary_order">Binary Order:</label>
-                    <select id="binary_order">
-                    <option value="ord">Ordinary</option>
-                    <option value="shuf">Shuffle</option>
-                    <option value="ran">Random</option>
+                    <select id="binary_order" name="binary_order">
+                        <option value="ord">Ordinary</option>
+                        <option value="shuf">Shuffle</option>
+                        <option value="ran">Random</option>
                     </select>
                     <br>
                     <label style="font-family: dejavu sans" for="show_binary">Show binary?</label>
                     <input type="checkbox" name="show_binary" id="show_binary">
                     <br>
                     <label style="font-family: dejavu sans" for="initial_pitch">Enter initial pitch:</label>
-                    <select id="binary_order">
-                    <option value="C">C</option>
-                    <option value="C#">C#</option>
-                    <option value="D">D</option>
-                    <option value="D#">D#</option>
-                    <option value="E">E</option>
-                    <option value="F">F</option>
-                    <option value="F#">F#</option>
-                    <option value="G">G</option>
-                    <option value="G#">G#</option>
-                    <option value="A">A</option>
-                    <option value="A#">A#</option>
-                    <option value="B">B</option>
+                    <select id="initial_pitch" name="initial_pitch">
+                        <option value="C">C</option>
+                        <option value="C#">C#</option>
+                        <option value="D">D</option>
+                        <option value="D#">D#</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="F#">F#</option>
+                        <option value="G">G</option>
+                        <option value="G#">G#</option>
+                        <option value="A">A</option>
+                        <option value="A#">A#</option>
+                        <option value="B">B</option>
+                    </select>
                     <input type="submit" value="Submit">
                     <br>
                 </form>
