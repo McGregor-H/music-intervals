@@ -192,14 +192,14 @@ def generate_unique_name():
 def later_function(binary_order):
 
     if binary_order == 'ord':
-        decision = ("all of the possible permutations in order")
+        decision = (" all of the possible permutations in order ")
         return decision
     elif binary_order == 'shuf': 
         # do something with perm_output_str
-        decision = ("all of the possible permutation in random order [like a shuffled deck]")
+        decision = (" all of the possible permutations in random order ")
         return decision
     elif binary_order == 'ran':
-        decision = ("random permutations")
+        decision = (" random permutations ")
         return decision 
     else:
         exit(0)
@@ -217,5 +217,8 @@ https://www.gregpfeiffer.com
 generated with THE INTERVAL CODE
 copyright G.C.Pfeiffer ©2022
 """
+
+   
+
 
    
