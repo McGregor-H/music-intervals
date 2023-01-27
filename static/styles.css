@@ -1,8 +1,13 @@
-body {
-  background-color:orange;
+body  {
+  background-image: url("blotches1.jpg");
+  background-repeat: no-repeat;
+  background-size: 4000px 3000px;
+}
+.blueheader {
+  font-family: dejavu sans;
+  color: #25298c;
 }
 
-.blueheader {
-  font-family: impact;
-  color: blue;
+h1 {
+  border-block: 5px solid black;
 }
