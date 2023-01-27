@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block subtitle %} Result {{suggested_title}}{% endblock %}
 {% block content %}
-<h1 class="blueheader">Result {{suggested_title}}</h1>
+<h1 class="blueheader">Output</h1>
 <h3 class="blueheader">Interval Set</h3>
-<p>{{', '.join(interval_set)}}</p>
-<h3 class="blueheader">Binary Ordering Approach</h3>
-<p>{{binary_order}}</p>
+<p style="font-family: dejavu sans; font-size:14px">{{', '.join(interval_set)}}</p>
+<h3 class="blueheader">Binary Order Method</h3>
+<p style="font-family: dejavu sans; font-size:14px">Possible pitch outcomes using{{decision}}for the entered interval sequence.</p>
 <h3 class="blueheader">Pitches</h3>
-	<p>{{initial_pitch}}</p>
+	<p style="font-family: dejavu sans; font-size:14px">{{initial_pitch}}</p>
 	<table>
-		<tbody>
+		<tbody style="font-family: dejavu sans; font-size:14px">
 			{% for sublist in all_pitches %}
 			<tr>
 				{% for element in sublist %}
@@ -19,23 +19,34 @@
 			{% endfor %}
 		</tbody>
 	</table>
-<details>
-	<summary>Binary</summary>
-	<p> 0=up, 1=down</p>
-	<p>{{binary}}</p>
-</details>
+
 <h3 class="blueheader">Pitch Tallies</h3>
 	<table>
-		<thead>
+		<thead style="font-family: dejavu sans; font-size:14px">
 			<tr><th>Pitch</th><th>Count</th></tr>
 		</thead>
 		<tbody>
 			{% for pitch, count in total_tally.items() %}
 			<tr>
-				<td>{{pitch}}</td>
-				<td>{{count}}</td>
+				<td style="font-family: dejavu sans; font-size:14px">{{pitch}}</td>
+				<td style="font-family: dejavu sans; font-size:14px">{{count}}</td>
 			</tr>
 			{% endfor %}
 		</tbody>
 	</table>
+
+<h3 class="blueheader">Binary Sequence</h3>
+	<table>
+		<tbody style="font-family: dejavu sans; font-size:14px">
+			{% for sublist in binary %}
+			<tr>
+				{% for element in sublist %}
+				<td>{{element}}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+<p style="font-family: dejavu sans; font-size:14px">Random Title: {{suggested_title}}</p>
 {% endblock %}
