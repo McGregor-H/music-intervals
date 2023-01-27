@@ -35,6 +35,7 @@ def result_page():
     perm_list = make_permutations(length_needed(entered_values), binary_order, random_seed=random_seed)
     pitches_list_all = pitch_list_generator(initial_pitch, perm_list, entered_values)
     return render_template('./result.html',
+        decision=later_function(binary_order),
         interval_set=get_intervals(entered_values),
         initial_pitch = initial_pitch,
         binary_order=binary_order,
@@ -47,15 +48,19 @@ def result_page():
 @app.before_request
 def set_quote():
     g.quote = random.choice([
-        "Just because you are a character, doesn't mean that you have character",
-        "That's just, like, your opinion. Man",
-        "Damn it feels good to be a gangsta",
-        "The root problem with conventional currencies is all the trust that's required to make it work",
-        "Measure twice, cut once",
-        "My baby don't mess around because she loves me so and this i know for sure",
-        "Once in a while you get shown the light in the strangest of places if you look at it right",
-        "I get knocked down, but I get up again, you're never gonna keep me down",
-        "Everyone has a plan until you get punched in the face"
+        "-It's all pipes!-",
+        "-The central message of Buddhism is not every man for himself!-",
+        "-What we observe is not nature itself, but nature exposed to our method of questioning.-",
+        "-If I was an imitation, a perfect imitation, how would you know if it was really me?-",
+        "-I can't lie to you about your chances. But you have my sympathies.-",
+        "-Moods are for cattle and love play.-",
+        "-In the afterlife, we’ll sit around talking about the good old days, when we wished that we were dead.",
+        "-Who run Bartertown?-",
+        "-Ever see a hot shot hit kid?  I saw the gimp catch one in Philly.-",
+        "-A man goes to the doctor for a check, and the doctor exams him and says I’ve got bad news, you’ve got cancer and alzheimers.  The man goes Thank god I don’t have cancer.-",
+        "-When I was born the doctor came out to the waiting room and said to my father, I'm very sorry. We did everything we could…  but he pulled through.-",
+        "-Digital watches. And soon I shall have understanding of video cassette recorders and car telephones. And when I have understanding of them, I shall have understanding of computers.And when I have understanding of computers, I shall be the Supreme Being!-"
+
     ])
 
 
@@ -67,4 +72,6 @@ if __name__ == "__main__":
 #   source venv/bin/activate
 
 #   python3 -m pip install -r requirements.txt
+
+
 
