@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Music Intervals: {% block subtitle %}{% endblock %}</title>
+      <title>Interval Permutation {% block subtitle %}{% endblock %}</title>
       <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
       <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}">
   </head>
   <body>
-    <div id="content">{% block content %}{% endblock %}</div>
+  <body>
+    <p id="content">{% block content %}{% endblock %}</p>
     <hr> 
-    <div id="footer">
-      <span style="font-family: courier">random quote:</span>
-      <br>
-      <span style="font-family: courier; font-size:14px";color:#155223>{{g.quote}}</span>
-      <br/><br/>
-      <span style="font-family: dejavu sans">Created by Greg Pfeiffer 2023.
+	<div id="footer">
+      <span style="font-family: courier; font-size:14px">random quote:</span>
+      <br/>
+      <span style="font-family: courier; font-size:14px">{{g.quote}}</span>
+	  <br/><br/>
+	  <span style="font-family: dejavu sans; font-size:12px">  Created by Greg Pfeiffer 2023.
+	  <br/><br/>
+	  <img src="{{url_for('static', filename='3rd system.jpg')}}" width="320" height="97" />
+	  <br/><br/>
