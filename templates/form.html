@@ -1,30 +1,40 @@
 {% extends "base.html" %}
-{% block subtitle %}Creation Form{% endblock %}
 {% block content %}
 <form method="post">
 
     <h1 class="blueheader">The interval program</h1>
-    <br>
-    <p style="font-family: dejavu sans; line-height: 0.2">The purpose of this process is to extrapolate entire sequences</p>
-    <p style="font-family: dejavu sans; line-height: 0.2">of related pitch material from small sets of music intervals .</p>
-    <br>
-    <label for="entered_values_raw" style="font-family: dejavu sans; font-size:14px">Enter intervals (comma separated):</label>
+    <p class="whatilike">The purpose of this process is to extrapolate entire sequences</p>
+    <p class="whatilike">of related pitch material from a small set of music intervals .</p>
+	<p class="whatilike">Since the largest interval needed to reach any pitch from any</p>
+    <p class="whatilike">other pitch is a tri-tone, this program utilzes only these intervals.</p>
+	<br>
+    <label for="entered_values_raw" style="font-family: dejavu sans; font-size:14px; font-weight: bold">Enter intervals (comma separated):</label>
     <input type="text" name="entered_values_raw" id="entered_values_raw">
-    <p style="font-family: dejavu sans; font-size:14px; line-height: 0.2;">Enter a sequence of intervals as a list of numbers separated by commas</p>
-    <p style="font-family: dejavu sans; font-size:14px; line-height: 0.2;">[only input numbers 1 through 6]</p>
-    <p style="font-family: dejavu sans; font-size:14px; line-height: 0.2; font-style: italic"> 1=minor 2nd, 2=Major 2nd, 3=minor 3rd</p>
-    <p style="font-family: dejavu sans; font-size:14px; line-height: 0.2; font-style: italic"> 4=Major 3rd, 5=Perfect 4th, 6=Tri-tone</p>
-    <p style="font-family: dejavu sans; color:red; font-size:14px; line-height: 0.2">for example: 2,5,3,1</p>
+    <p style="font-family: dejavu sans; font-size:14px; line-height: 0.3;">[only input numbers 1 through 6]</p>
+    <p style="font-family: dejavu sans; font-size:14px; line-height: 0.3; font-style: italic"> 1=minor 2nd, 2=Major 2nd, 3=minor 3rd</p>
+    <p style="font-family: dejavu sans; font-size:14px; line-height: 0.3; font-style: italic"> 4=Major 3rd, 5=Perfect 4th, 6=Tri-tone</p>
+    <p style="font-family: dejavu sans; color:#751107; font-size:14px; line-height: 0.3">for example: 2,5,3,1</p>
     <br>
-    <label for="binary_order" style="font-family: dejavu sans; font-size:14px">Binary Order:</label>
+    <label for="binary_order" style="font-family: dejavu sans; font-size:14px; font-weight: bold">Binary Order:</label>
     <select id="binary_order" name="binary_order">
-        <option value="ord">Ordinary</option>
-        <option value="shuf">Shuffle</option>
+        <option value="ord">Ordered</option>
+        <option value="shuf">Shuffled</option>
         <option value="ran">Random</option>
     </select>
-    <br>
+	<p style="font-family: dejavu sans; font-size:14px; line-height: 0.3;">This option determines the order of ascending and descending applied to</p> 
+	<p style="font-family: dejavu sans; font-size:14px; line-height: 0.3;">the sequence of intervals entered.</p>
+	<br>
+	<p style="font-family: dejavu sans; font-size:14px; line-height: 0.3;">   -<u>Ordered</u> systematically applies every permutation starting with all ascending intervals,</p>
+	<p style="font-family: dejavu sans; font-size:14px; line-height: 0.3;">and then proceeds through the permuations sequentially until ending with all descending.</p>
+	<p style="font-family: dejavu sans; font-size:14px; line-height: 0.3;">   -<u>Shuffled</u> uses every permutation available but in random order.</p>
+	<p style="font-family: dejavu sans; font-size:14px; line-height: 0.3;">   -<u>Random</u> uses random permuations in random order with possible repetition.</p>
+	<br>
+	<p style="font-family: dejavu sans; font-size:14px; line-height: 0.3; font-style: oblique;">Note: The provided permuations use the last pitch from the previous line to start the next</p>
+	<p style="font-family: dejavu sans; font-size:14px; line-height: 0.3; font-style: oblique;">permutation and because of this the entire list consists of only of the interval pattern.</p>
+
+	<br>
     </br>
-    <label for="initial_pitch" style="font-family: dejavu sans; font-size:14px">Enter initial pitch:</label>
+    <label for="initial_pitch" style="font-family: dejavu sans; font-size:14px; font-weight: bold">Enter initial pitch:</label>
     <select id="initial_pitch" name="initial_pitch">
         <option value="C">C</option>
         <option value="C#">C#</option>
@@ -42,7 +52,7 @@
     <input type="submit" value="Submit">
     <br>
     </br>
-    <img src="{{url_for('static', filename='blotches_sm.jpg')}}" width="160" height="120" />
+    
 
 </form>
 {% endblock %}
