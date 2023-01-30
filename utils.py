@@ -174,11 +174,11 @@ def generate_unique_name_no_suffix(random_seed=None):
         random.seed(random_seed)
     word_1 = ['Inkwell', 'Ion', 'Trinity', 'Ceti', 'Echo', 'Kilo', 'Lightfoot', 'Nightwind', 'Panic', 'Sierra', 'Whiskey', 'X-ray', 'Zebra', 'Fallen', 'Hunter', 'Iceberg', 'Advantage', 'Blockade', 'Ricochet', 'Shakedown', 'Thunder', 'Switchblade', 'Cutlass', 'Sabre', 'Marduk', 'Enkidu', 'Omega']
     word_2 = ['Ridge', 'Canyon', 'Mountain', 'Creek', 'Hollow', 'Point', 'Bluff', 'Path', 'Tower', 'Cove', 'Plains', 'Valley', 'Bay', 'Channel', 'Gulf', 'Reef', 'Ravine', 'Deep', 'Quadrant', 'Triangle', 'Highway', 'Parkway']
-    word_3 = ['part_I', 'part_II', 'part_III', 'part_IV', 'part_V', 'part_VI', 'part_VII', 'part_VIII', 'part_IX', 'part_X']
+    word_3 = ['part I', 'part II', 'part III', 'part IV', 'part V', 'part VI', 'part VII', 'part VIII', 'part IX', 'part X']
     choice_1 = random.choice(word_1)
     choice_2 = random.choice(word_2)
     choice_3 = random.choice(word_3)
-    unique_name = choice_1 + '_' + choice_2 + '_' + choice_3
+    unique_name = choice_1 + ' ' + choice_2 + ' ' + choice_3
     return unique_name    
 
 
@@ -217,8 +217,5 @@ https://www.gregpfeiffer.com
 generated with THE INTERVAL CODE
 copyright G.C.Pfeiffer ©2022
 """
-
-   
-
 
    

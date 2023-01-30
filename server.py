@@ -48,19 +48,30 @@ def result_page():
 @app.before_request
 def set_quote():
     g.quote = random.choice([
-        "-It's all pipes!-",
-        "-The central message of Buddhism is not every man for himself!-",
-        "-What we observe is not nature itself, but nature exposed to our method of questioning.-",
-        "-If I was an imitation, a perfect imitation, how would you know if it was really me?-",
-        "-I can't lie to you about your chances. But you have my sympathies.-",
-        "-Moods are for cattle and love play.-",
-        "-In the afterlife, we’ll sit around talking about the good old days, when we wished that we were dead.",
-        "-Who run Bartertown?-",
-        "-Ever see a hot shot hit kid?  I saw the gimp catch one in Philly.-",
-        "-A man goes to the doctor for a check, and the doctor exams him and says I’ve got bad news, you’ve got cancer and alzheimers.  The man goes Thank god I don’t have cancer.-",
-        "-When I was born the doctor came out to the waiting room and said to my father, I'm very sorry. We did everything we could…  but he pulled through.-",
-        "-Digital watches. And soon I shall have understanding of video cassette recorders and car telephones. And when I have understanding of them, I shall have understanding of computers.And when I have understanding of computers, I shall be the Supreme Being!-"
-
+        "It's all pipes!  -G. Costanza",
+        "The central message of Buddhism is not every man for himself!  -Wanda",
+        "What we observe is not nature itself, but nature exposed to our method of questioning.  -Werner Heisenberg",
+        "If I was an imitation, a perfect imitation, how would you know if it was really me?  -Childs",
+        "I can't lie to you about your chances. But you have my sympathies.  -Ash",
+        "Moods are for cattle and love play.  -Gurney Halleck",
+        "Oh, I'm afraid the deflector shield will be quite operational when your friends arrive.  -Emperor Palpatine",
+        "Who run Bartertown?  -Master",
+        "Ever see a hot shot hit kid?  I saw the gimp catch one in Philly.  -William S. Burroughs",
+        "One word sums up probably the responsibility of any vice president,and that one word is 'to be prepared.' -Dan Quayle",
+        "A man goes to the doctor for a check, and the doctor exams him and says I’ve got bad news, you’ve got cancer and alzheimers.  The man goes Thank god I don’t have cancer.  -Gilbert Gottfried",
+        "When I was born the doctor came out to the waiting room and said to my father, I'm very sorry. We did everything we could…  but he pulled through.  -Rodney Dangerfield",
+        "And soon I shall have understanding of video cassette recorders and car telephones. And when I have understanding of them, I shall have understanding of computers.And when I have understanding of computers, I shall be the Supreme Being!  -Evil"
+        "South to drop off, north to pick up. Okay, that's a good system! - Jack Butler",
+        "The desert is an ocean in which no oar is dipped.  -T.E. Lawrence"
+        "24 hours is like 3 weeks!  -Unknown woman off-camera, Amity Island Town Hall Meeting.",
+        "No sir. I'm just a big Finkle fan. This is my Graceland.  -Ace Ventura",
+        "I'll go speak with this Lord Humongus. He seems like a reasonable man.  -Curmudgeon",
+        "The Duke:Describe what the last man who passed a $20 bill looked like., Bartender:Thirty.Tall., The Duke:About six feet tall?, Bartender:Six-five., The Duke:Dark-Brown Hair?, Bartender:Light Colored., The Duke:Sounds like our man.  -Midnight Run",
+        "Now, in order to prevent the enemy from issuing fake or confusing orders the CRM 114 is designed not to receive at all unless the message is preceded by the correct three-letter code group prefix.  -Gen. Turgidson",
+        "They were a party of settlers in covered-wagon times...  -Jack Torrence",
+        "El que hace trofeos de los hombres.  -Ana",
+        "John Winger: Y'know, one day, Tito Puente will be dead, and you'll say, 'Oh, yes, I've been listening to his work for years, and I think he's fabulous.",
+        "See you on deck, Senator.  -Judge Smails",
     ])
 
 
@@ -72,6 +83,4 @@ if __name__ == "__main__":
 #   source venv/bin/activate
 
 #   python3 -m pip install -r requirements.txt
-
-
 
