@@ -1,13 +1,35 @@
 body  {
-  background-image: url("blotches1.jpg");
+  background-image: url("blotches_fix.jpg");
   background-repeat: no-repeat;
-  background-size: 4000px 3000px;
+  background-size: 5000px 3750px;
 }
 .blueheader {
   font-family: dejavu sans;
   color: #25298c;
+  text-shadow: 1px 1px #a4a3a3;
 }
 
 h1 {
   border-block: 5px solid black;
 }
+div {
+  height: 300px;
+  width: 50%;
+
+}
+img {
+  float: left;
+}
+span {
+	clear: left;
+}
+div2 {
+	clear: left;
+}
+.whatilike {
+	font-family: dejavu sans;
+	font-size:14px;
+	line-height: 0.2;
+}
+	
+	
