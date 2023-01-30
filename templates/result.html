@@ -1,11 +1,13 @@
 {% extends "base.html" %}
-{% block subtitle %} Result {{suggested_title}}{% endblock %}
+{% block subtitle %} :result {{suggested_title}}{% endblock %}
 {% block content %}
 <h1 class="blueheader">Output</h1>
 <h3 class="blueheader">Interval Set</h3>
 <p style="font-family: dejavu sans; font-size:14px">{{', '.join(interval_set)}}</p>
+<hr>
 <h3 class="blueheader">Binary Order Method</h3>
-<p style="font-family: dejavu sans; font-size:14px">Possible pitch outcomes using{{decision}}for the entered interval sequence.</p>
+<div style="font-family: dejavu sans; font-size:14px">Possible pitch outcomes using{{decision}}for the entered interval sequence.</p>
+<hr>
 <h3 class="blueheader">Pitches</h3>
 	<p style="font-family: dejavu sans; font-size:14px">{{initial_pitch}}</p>
 	<table>
@@ -19,7 +21,7 @@
 			{% endfor %}
 		</tbody>
 	</table>
-
+<hr>
 <h3 class="blueheader">Pitch Tallies</h3>
 	<table>
 		<thead style="font-family: dejavu sans; font-size:14px">
@@ -34,7 +36,7 @@
 			{% endfor %}
 		</tbody>
 	</table>
-
+<hr>
 <h3 class="blueheader">Binary Sequence</h3>
 	<table>
 		<tbody style="font-family: dejavu sans; font-size:14px">
@@ -47,6 +49,6 @@
 			{% endfor %}
 		</tbody>
 	</table>
-
+<hr>
 <p style="font-family: dejavu sans; font-size:14px">Random Title: {{suggested_title}}</p>
 {% endblock %}
