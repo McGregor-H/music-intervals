@@ -1,4 +1,3 @@
-import os
 import random
 
 from flask import Flask, g, redirect, render_template, request, url_for
@@ -79,7 +78,7 @@ def set_quote():
 if __name__ == "__main__":
     # intended for local dev invoked via `python main.py`
     # google cloud's app engine will not use this, it uses only the `app` object defined above
-    app.run(host="127.0.0.1", port=int(os.getenv("PORT", 8080)), debug=True)
+    app.run(host="127.0.0.1", port=8080, debug=True)
 
 #   python3 -m venv venv
 
