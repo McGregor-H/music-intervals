@@ -172,9 +172,9 @@ def tallies(pitches_list_all):
 def generate_unique_name_no_suffix(random_seed=None):
     if random_seed is not None:
         random.seed(random_seed)
-    word_1 = ['Inkwell', 'Ion', 'Trinity', 'Ceti', 'Echo', 'Kilo', 'Lightfoot', 'Nightwind', 'Panic', 'Sierra', 'Whiskey', 'X-ray', 'Zebra', 'Fallen', 'Hunter', 'Iceberg', 'Advantage', 'Blockade', 'Ricochet', 'Shakedown', 'Thunder', 'Switchblade', 'Cutlass', 'Sabre', 'Marduk', 'Enkidu', 'Omega']
-    word_2 = ['Ridge', 'Canyon', 'Mountain', 'Creek', 'Hollow', 'Point', 'Bluff', 'Path', 'Tower', 'Cove', 'Plains', 'Valley', 'Bay', 'Channel', 'Gulf', 'Reef', 'Ravine', 'Deep', 'Quadrant', 'Triangle', 'Highway', 'Parkway']
-    word_3 = ['part I', 'part II', 'part III', 'part IV', 'part V', 'part VI', 'part VII', 'part VIII', 'part IX', 'part X']
+    word_1 = ['Inkwell', 'Ion', 'Trinity', 'Ceti', 'Echo', 'Kilo', 'Lightfoot', 'Nightwind', 'Panic', 'Sierra', 'Whiskey', 'X-ray', 'Zebra', 'Fallen', 'Hunter', 'Iceberg', 'Advantage', 'Blockade', 'Ricochet', 'Shakedown', 'Thunder', 'Switchblade', 'Cutlass', 'Sabre']
+    word_3 = ['Ridge', 'Canyon', 'Mountain', 'Creek', 'Hollow', 'Point', 'Bluff', 'Path', 'Tower', 'Cove', 'Plains', 'Valley', 'Bay', 'Channel', 'Gulf', 'Reef', 'Ravine', 'Deep', 'Quadrant', 'Triangle', 'Highway', 'Parkway']
+    word_2 = ['Alpha', 'Beta', 'Gamma', 'Epsilon', 'Jethro', 'Attack', 'Omicron', 'Pitcairn', 'Sigma', 'Omega', 'Arnaq', 'Ugruk', 'Luur', 'Marduk', 'Enkidu']  #Inuktitut, Inupiaq
     choice_1 = random.choice(word_1)
     choice_2 = random.choice(word_2)
     choice_3 = random.choice(word_3)
