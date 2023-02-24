@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
       <title>Interval Permutation {% block subtitle %}{% endblock %}</title>
@@ -10,11 +11,29 @@
     <p id="content">{% block content %}{% endblock %}</p>
     <hr> 
 	<div id="footer">
-      <span style="font-family: courier; font-size:14px">random quote:</span>
+      <span style="font-family: dejavu sans; font-size:14px; color:white">random quote:  </span>
       <br/>
-      <span style="font-family: courier; font-size:14px">{{g.quote}}</span>
+	  <br/>
+      <span style="font-family: dejavu sans; font-size:14px; color:white">{{g.quote}}</span>
 	  <br/><br/>
-	  <span style="font-family: dejavu sans; font-size:12px">  Created by Greg Pfeiffer 2023.
+	  <br/>
+	  <span style="font-family: dejavu sans; font-size:14px; color:white">&#x2234; Created by <a href="https://www.gregpfeiffer.com/">Greg Pfeiffer</a> 2023  &#x2235 </span>
 	  <br/><br/>
-	  <img src="{{url_for('static', filename='3rd system.jpg')}}" width="320" height="97" />
-	  <br/><br/>
+		<div id="slideshow">
+			<div class="slide-wrapper">
+				<div class="slide"></div>
+				<div class="slide"></div>
+				<div class="slide"></div>
+				
+			</div>
+		</div>
+	<br>
+	  
+	 <br/><br/>
+	</div>  
+	  
+
+
+<!--img src="{{url_for('static', filename='system_25_1.jpg')}}" width="300" height="auto" -->
+<!--img src="{{url_for('static', filename='system_25_2.jpg')}}" width="300" height="auto" -->
+<!--img src="{{url_for('static', filename='system_25_3.jpg')}}" width="300" height="auto" -->

@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 {% block subtitle %} :result {{suggested_title}}{% endblock %}
 {% block content %}
-<h1 class="blueheader">Output</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<h1 class="blueheader">Output &#8887 </h1>
 <h3 class="blueheader">Interval Set</h3>
-<p style="font-family: dejavu sans; font-size:14px">{{', '.join(interval_set)}}</p>
+<p style="font-family: dejavu sans; font-size:16px">{{', '.join(interval_set)}}</p>
 <hr>
 <h3 class="blueheader">Binary Order Method</h3>
-<div style="font-family: dejavu sans; font-size:14px">Possible pitch outcomes using{{decision}}for the entered interval sequence.</p>
+<div style="font-family: dejavu sans; font-size:16px">Possible pitch outcomes using{{decision}}for the entered interval sequence.</p>
 <hr>
 <h3 class="blueheader">Pitches</h3>
-	<p style="font-family: dejavu sans; font-size:14px">{{initial_pitch}}</p>
+	<p style="font-family: dejavu sans; font-size:16px">{{initial_pitch}}</p>
 	<table>
-		<tbody style="font-family: dejavu sans; font-size:14px">
+		<tbody style="font-family: dejavu sans; font-size:16px">
 			{% for sublist in all_pitches %}
 			<tr>
 				{% for element in sublist %}
@@ -21,25 +22,27 @@
 			{% endfor %}
 		</tbody>
 	</table>
+	<br/>
 <hr>
-<h3 class="blueheader">Pitch Tallies</h3>
+<h3 class="blueheader">Pitch Count</h3>
 	<table>
-		<thead style="font-family: dejavu sans; font-size:14px">
-			<tr><th>Pitch</th><th>Count</th></tr>
-		</thead>
 		<tbody>
 			{% for pitch, count in total_tally.items() %}
 			<tr>
-				<td style="font-family: dejavu sans; font-size:14px">{{pitch}}</td>
-				<td style="font-family: dejavu sans; font-size:14px">{{count}}</td>
+				<td style="font-family: dejavu sans; font-size:16px">{{pitch}}</td>
+				<td style="font-family: dejavu sans; font-size:16px">{{count}}</td>
 			</tr>
 			{% endfor %}
+	
 		</tbody>
 	</table>
+	<p style="font-family: dejavu sans; font-size:16px">total number of pitches: {{total_length}}</p>
+	<br/>
 <hr>
 <h3 class="blueheader">Binary Sequence</h3>
+<p style="font-family: dejavu sans; font-size:16px; color:#151463">[0=up, 1=down]</p>
 	<table>
-		<tbody style="font-family: dejavu sans; font-size:14px">
+		<tbody style="font-family: dejavu sans; font-size:16px; color:#151463">
 			{% for sublist in binary %}
 			<tr>
 				{% for element in sublist %}
@@ -50,5 +53,25 @@
 		</tbody>
 	</table>
 <hr>
-<p style="font-family: dejavu sans; font-size:14px">Random Title: {{suggested_title}}</p>
+<p style="font-family: dejavu sans; font-size:16px; display: inline-block;">Random Title: </p>
+<p style="font-family: dejavu sans; font-size:16px; color:#751107; display: inline-block; font-weight:bold">{{suggested_title}}</p>
+</br>
+<a style="font-family: dejavu sans; font-size:18px;" href="#" onclick="downloadTextFile('{{suggested_title}}')">Download as text file</a>
+</br>
+</br>
+<a style="font-family: impact; font-size:18px; color:#257d2c;" href="https://interval-program.ue.r.appspot.com">Start Over</a>
+<script>
+function downloadTextFile(suggested_title) {
+  var content = document.documentElement.innerText; // get all text on the webpage
+  var encodedContent = encodeURIComponent(content);
+  var link = document.createElement('a');
+  link.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodedContent);
+  link.setAttribute('download', suggested_title + '.txt');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+</script>
+
 {% endblock %}
