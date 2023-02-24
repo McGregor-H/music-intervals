@@ -1,8 +1,10 @@
 body  {
-  background-image: url("blotches_fix.jpg");
-  background-repeat: no-repeat;
-  background-size: 5000px 3750px;
+  background-image: url("blotches.jpg");
+  background-color: #909090;
+  background-size: 4500px 3375px;
 }
+ 
+
 .blueheader {
   font-family: dejavu sans;
   color: #25298c;
@@ -14,22 +16,190 @@ h1 {
 }
 div {
   height: 300px;
-  width: 50%;
+  width: 100%;
+  flex-wrap: wrap;
+
 
 }
+
 img {
   float: left;
 }
 span {
 	clear: left;
+	width: auto;
+	font-family: dejavu sans;
+	
+
 }
 div2 {
 	clear: left;
 }
+
 .whatilike {
+	display: flex;
+	flex-wrap: wrap;
+	font-family: dejavu sans;
+	font-size:16px;
+	line-height: auto;
+}
+
+.option2 {
+	display: flex;
+	flex-wrap: wrap;
 	font-family: dejavu sans;
 	font-size:14px;
-	line-height: 0.2;
+	line-height: 0.9;
+}	
+
+#slideshow {
+  overflow: hidden;
+  height: 92px;
+  width: 300px;
+  margin: 0 auto;
+  float: left;
 }
+
+.slide-wrapper {
+  width: 900px;
+  -webkit-animation: slide 24s ease infinite;
+}
+
+.slide {
+  float: left;
+  height: 92px;
+  width: 300px;
+}
+
+.slide:nth-child(1) {
+  background-image: url("111.jpg");
+}
+
+.slide:nth-child(2) {
+  background-image: url("222.jpg");
+}
+
+.slide:nth-child(3) {
+  background-image: url("333.jpg");
+}
+
+
+@-webkit-keyframes slide {
+  25% {margin-left: 0px;}
+  33% {margin-left: -300px;}
+  50% {margin-left: -300px;}
+  66% {margin-left: -600px;}
+  90% {margin-left: -600px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width:1025px) {
 	
+body  {
+  background-image: url("blotches.jpg");
+  background-repeat: repeat-y;
+  background-size: 4500px 3375px;
+}
+
+.blueheader {
+  font-family: dejavu sans;
+  color: #25298c;
+  text-shadow: 1px 1px #a4a3a3;
+}
+
+
+
+h1 {
+  border-block: 5px solid black;
+}
+div {
+  height: 300px;
+  width: 50%;
+  flex-wrap: wrap;
+
+
+}
+
+img {
+  float: left;
+}
+span {
+	clear: left;
+	width: auto;
+	font-family: dejavu sans;
 	
+
+}
+div2 {
+	clear: left;
+}
+
+.whatilike {
+	display: flex;
+	flex-wrap: wrap;
+	font-family: dejavu sans;
+	font-size:16px;
+	line-height: 0.4;
+}
+.option2 {
+	display: flex;
+	flex-wrap: wrap;
+	font-family: dejavu sans;
+	font-size:14px;
+	line-height: 0.4;
+}	
+
+
+#slideshow {
+  overflow: hidden;
+  height: 92px;
+  width: 300px;
+  margin: 0 auto;
+  float: left;
+}
+
+.slide-wrapper {
+  width: 900px;
+  -webkit-animation: slide 24s ease infinite;
+}
+
+.slide {
+  float: left;
+  height: 92px;
+  width: 300px;
+}
+
+.slide:nth-child(1) {
+  background-image: url("111.jpg");
+}
+
+.slide:nth-child(2) {
+  background-image: url("222.jpg");
+}
+
+.slide:nth-child(3) {
+  background-image: url("333.jpg");
+}
+
+
+@-webkit-keyframes slide {
+  25% {margin-left: 0px;}
+  33% {margin-left: -300px;}
+  50% {margin-left: -300px;}
+  66% {margin-left: -600px;}
+  90% {margin-left: -600px;}
+}
+}
